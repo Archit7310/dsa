@@ -153,7 +153,7 @@ void deletefromend(node *&head){
 int main()
 {
     fastio;
-    node *head = NULL;
+    node *head = NULL;   
     pushAtEnd(head,10);
     pushAtEnd(head,30);
     // print(head);
@@ -161,15 +161,16 @@ int main()
     pushAtStart(head,2);
     pushAtEnd(head,40);
     print(head);
-    addatindex(head,3,12);
+
+    // addatindex(head,3,12);
+    // // print(head);
+    // // cout<<(search(head,1)?"Yes":"No");
+    // // cout<<search(head,1);
     // print(head);
-    // cout<<(search(head,1)?"Yes":"No");
-    // cout<<search(head,1);
-    print(head);
-    // deletebyvalue(head,12);
-    cout<<findnthll(head,3)<<endl;
-    deletebyindex(head,3);
-    // deletebyvlaue(head,2);
-    print(head);
+    // // deletebyvalue(head,12);
+    // cout<<findnthll(head,3)<<endl;
+    // deletebyindex(head,3);
+    // // deletebyvlaue(head,2);
+    // print(head);
     return 0;
 }

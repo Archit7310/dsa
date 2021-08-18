@@ -102,7 +102,8 @@ int searchbyindex(node *head,int i){
     }
     return temp->data;
 }
-// my network is weak
+
+// 
 int main()
 {
     fastio;

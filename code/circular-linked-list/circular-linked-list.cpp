@@ -62,7 +62,6 @@ void deleteAtHead(node* &head){
 }
  
 void deletion(node* &head, int pos){
- 
     if(pos==1){
         deleteAtHead(head);
         return;
@@ -82,8 +81,6 @@ void deletion(node* &head, int pos){
 }
  
 void display(node* head){
- 
- 
     node* temp=head;
     do
     {
@@ -105,7 +102,7 @@ int main(){
     display(head);
     insertAtHead(head,5);
     display(head);
-    deletion(head,1);
+    deletion(head,4);
     display(head);
     
  
