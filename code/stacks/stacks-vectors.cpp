@@ -2,7 +2,6 @@
 #include<vector>
 using namespace std;
 class Stack {
-
 private:
     int maxSize;
     vector<int> v;
@@ -13,7 +12,6 @@ public:
         this->v.reserve(this->maxSize);
         this->top = -1;
     }
-
     void push(int j) {
         if (!(this->isFull())) {
             this->v[++this->top] = j;
@@ -21,7 +19,6 @@ public:
             cout << "stack is full"<<endl;
         }
     }
-
     int pop() {
         if (!(this->isEmpty())) {
 

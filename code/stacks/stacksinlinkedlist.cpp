@@ -67,6 +67,7 @@ void print(node*&top)
 int main()
 {	
     node *top=NULL;
+    
 	push(top,10);
 	push(top,20);
 	push(top,30);
