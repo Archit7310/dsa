@@ -1,18 +1,53 @@
-#include <bits/stdc++.h>  // importing library
+#include <bits/stdc++.h>
 using namespace std;
-void main(){
- 
+int main()
+{
+    int n = 5;
+    for (int i = n; i > n - 1; i--)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            cout << "* ";
+        }
+        cout << endl;
+    }
 }
 
+// i=10    10<10
+// 012......9
 
+// ifstream fin;
+//     ofstream fout;
+//     string line;
+//     fin.open("student.txt");
+//     fout.open("Data.txt");
+//     // Execute a loop until EOF (End of File)
+//     while (fin) {
+//         // Read a Line from File
+//         getline(fin, line);
+//         // Print line in Console
+//         cout << line << endl;
+//         // save in the file
+//         fout << line << endl;
+//     }
+//     fin.close();
+//     fout.close();
 
+// int a,b;
+//     for (a = 0; a < 4; a++)
+//     {
+//         b=inc(a);
+//     }
+//     cout<<b;
 
-
-
+//     char arr[9]="COMPUTER";
+//     int a,b;
+//     for(a=0,b=5;a<b;arr[a++]=arr[b--]);
+//     cout<<arr;
 
 //            * * * *     4
 //            *     *
-//            *     * 
+//            *     *
 //            * * * *
 
 //            * @ @ @ *   5     * @ @ *  4
@@ -21,20 +56,16 @@ void main(){
 //            @ * @ * @         * @ @ *
 //            * @ @ @ *
 
-//       *
-//     * *
-//   * * *
-// * * * *
-
-
+//                     *
+//                   * *
+//                 * * *
+//               * * * *
 
 // string s = "aman";
 // int arr[]={1,2,3,4};
 // for ( int c:arr ){
 //     cout<<c<<endl;
 // }
-
-
 
 //     int n;
 //     cin>>n;
@@ -60,9 +91,6 @@ void main(){
 // }else{
 //     cout<<"else";
 // }
-
-
-
 
 // 4
 
@@ -103,5 +131,3 @@ void main(){
 // *     *
 // *     *
 // * * * *
-
-
