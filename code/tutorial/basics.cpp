@@ -1,16 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <math.h>
 using namespace std;
+
 int main()
 {
-    int n = 5;
-    for (int i = n; i > n - 1; i--)
+    int n;
+    int max = 0;
+    cin >> n;
+
+    for (int i = 1; i < n; i++)
     {
-        for (int j = 0; j < i; j++)
+        bool flag = false;
+        for (int j = 2; j <= (int)sqrt(i); j++)
         {
-            cout << "* ";
+            if (i % j == 0)
+            {
+                flag = true;
+                break;
+            }
         }
-        cout << endl;
+        if (!flag && i != 1)
+        {
+            max = i;
+        }
     }
+    cout << max;
+    return 0;
 }
 
 // i=10    10<10

@@ -1,5 +1,3 @@
-// Note that by default C++ creates a max-heap
-// for priority queue
 #include <iostream>
 #include <queue>
 
