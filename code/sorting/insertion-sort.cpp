@@ -11,14 +11,8 @@ using namespace std;
 int main()
 {
     fastio;
-
-    int n, temp, j;
-    cin >> n;
-    int *arr = new int[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
+    int arr[] = {3, 10, 4, 2, 8, 6, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]), temp, j;
     for (int i = 1; i < n; i++)
     {
         temp = arr[i];

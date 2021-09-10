@@ -50,6 +50,12 @@ void merge(int array[], int const left, int const mid, int const right)
 
 void mergeSort(int array[], int const begin, int const end)
 {
+    cout << endl;
+    for (int i = begin; i < end + 1; i++)
+    {
+        cout << array[i] << " ";
+    }
+    cout << endl;
     if (begin >= end)
         return; // Returns recursivly
 
@@ -63,6 +69,7 @@ void printArray(int A[], int size)
 {
     for (auto i = 0; i < size; i++)
         cout << A[i] << " ";
+    cout << endl;
 }
 
 int main()
