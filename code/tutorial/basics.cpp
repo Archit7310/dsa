@@ -4,28 +4,8 @@ using namespace std;
 
 int main()
 {
-    int n;
-    int max = 0;
-    cin >> n;
+    int arr[23][19];
 
-    for (int i = 1; i < n; i++)
-    {
-        bool flag = false;
-        for (int j = 2; j <= (int)sqrt(i); j++)
-        {
-            if (i % j == 0)
-            {
-                flag = true;
-                break;
-            }
-        }
-        if (!flag && i != 1)
-        {
-            max = i;
-        }
-    }
-    cout << max;
-    return 0;
 }
 
 // i=10    10<10
