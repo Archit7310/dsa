@@ -1,13 +1,39 @@
-#include <iostream>
-#include <math.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int arr[23][19];
-
+    int arr[] = {1};
+    int *a = arr;
+    int *&b = arr;
 }
 
+// string s = "    hello  hj     ";
+//     s = regex_replace(s, regex("^ +"), "");
+
+// void removespaces(string &s)
+// {
+//     string temp = "";
+//     string::iterator it;
+//     string::reverse_iterator itr;
+//     for (it = s.begin(); it != s.end(); it++)
+//     {
+//         if (*it != ' ')
+//         {
+//             break;
+//         }
+//     }
+//     for (itr = s.rbegin(); itr != s.rend(); itr++)
+//     {
+//         if (*itr != ' ')
+//         {
+//             break;
+//         }
+//     }
+//     s = temp;
+// }
+
+// replace(s.begin(), s.end(), ' ', 'a');
 // i=10    10<10
 // 012......9
 
