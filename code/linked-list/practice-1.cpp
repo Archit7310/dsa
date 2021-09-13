@@ -8,14 +8,21 @@ public:
     node *next;
 };
 
-void printll(node *n)
+void llprint(node *n)
 {
     while (n != NULL)
     {
-        cout << n->data << "->";
+        if (n->next == NULL)
+        {
+            cout << n->data;
+        }
+        else
+        {
+            cout << n->data << "->";
+        }
         n = n->next;
     }
-    cout << "NULL" << endl;
+    cout << endl;
 }
 
 void llpushatStart(node *&head, int data)
@@ -49,24 +56,56 @@ void llpushatN(node *&head, int data, int index)
     node *n = new node();
     int i = 0;
     n->data = data;
-    node *temp = head;
-    if (temp == NULL)
+    node *temp = head, *prev = NULL;
+    if (index == 0)
     {
+        n->next = temp;
         head = n;
         return;
     }
-    while (temp->next != NULL && i != index)
+    while (i != index)
     {
-        temp = temp->next;
+        if (temp->next == NULL)
+        {
+            cout << "index not found \n";
+            return;
+        }
         i++;
-    }
-    if (i != index)
-    {
-        cout << "index not found\n";
-        return;
+        prev = temp;
+        temp = temp->next;
     }
     n->next = temp;
-    temp = n;
+    prev->next = n;
+}
+
+void lldeleteN(node *&head, int index)
+{
+    int i = 0;
+    if (head == NULL)
+    {
+        cout << "LL is empty \n";
+        return;
+    }
+    node *temp = head, *prev = NULL, *todelete = NULL;
+    if (index == 0)
+    {
+        head = head->next;
+        return;
+    }
+    while (i != index)
+    {
+        if (temp->next == NULL)
+        {
+            cout << "index not found\n";
+            return;
+        }
+        i++;
+        prev = temp;
+        temp = temp->next;
+    }
+    todelete = prev;
+    prev = temp;
+    delete todelete;
 }
 
 int main()
@@ -80,7 +119,7 @@ int main()
         cin >> data;
         llpushatEnd(head, data);
     }
-    llpushatN(head, 9, 2);
-    printll(head);
-    return 0;
+    llpushatN(head, 9, 4);
+    lldeleteN(head, 2);
+    llprint(head);
 }
