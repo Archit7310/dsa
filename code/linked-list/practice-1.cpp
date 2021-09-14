@@ -86,7 +86,7 @@ void lldeleteN(node *&head, int index)
         cout << "LL is empty \n";
         return;
     }
-    node *temp = head, *prev = NULL, *todelete = NULL;
+    node *temp = head, *prev = NULL;
     if (index == 0)
     {
         head = head->next;
@@ -103,9 +103,28 @@ void lldeleteN(node *&head, int index)
         prev = temp;
         temp = temp->next;
     }
-    todelete = prev;
-    prev = temp;
-    delete todelete;
+    // temp will contain the ith node so we have to delete that ith node
+    prev->next = temp->next;
+    delete temp;
+}
+
+void llreverseList(node *&head)
+{
+    node *temp = head, *rev = NULL, *revhead = NULL;
+    if (temp == NULL)
+    {
+        return;
+    }
+    else
+    {
+        llpushatStart(revhead, temp->data);
+    }
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+        llpushatStart(revhead, temp->data);
+    }
+    head = revhead;
 }
 
 int main()
@@ -120,6 +139,6 @@ int main()
         llpushatEnd(head, data);
     }
     llpushatN(head, 9, 4);
-    lldeleteN(head, 2);
+    llreverseList(head);
     llprint(head);
 }
