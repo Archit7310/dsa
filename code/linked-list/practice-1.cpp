@@ -5,7 +5,7 @@ class node
 {
 public:
     int data;
-    node *next;
+    node *next = NULL;
 };
 
 void llprint(node *n)
@@ -110,21 +110,43 @@ void lldeleteN(node *&head, int index)
 
 void llreverseList(node *&head)
 {
-    node *temp = head, *rev = NULL, *revhead = NULL;
-    if (temp == NULL)
+    node *current, *prev = NULL, *next;
+    current = head;
+    while (current != NULL)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    head = prev;
+}
+
+// reverse a linked list using recursion
+void llreverseListR(node *&n, node *&rev)
+{
+    if (n == NULL)
     {
         return;
     }
-    else
+    node *next = NULL;
+    next = n->next;
+    n->next = rev;
+    rev = n;
+    n = next;
+    llreverseListR(n, rev);
+}
+
+void llprintR(node *n)
+{
+    if (n == NULL)
     {
-        llpushatStart(revhead, temp->data);
+        cout << "NULL" << endl;
+        return;
     }
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-        llpushatStart(revhead, temp->data);
-    }
-    head = revhead;
+    // llprintR(n->next); // this will print in reverse order
+    cout << n->data << "->";
+    llprintR(n->next); // this will print in same order
 }
 
 int main()
@@ -139,6 +161,9 @@ int main()
         llpushatEnd(head, data);
     }
     llpushatN(head, 9, 4);
-    llreverseList(head);
-    llprint(head);
+    // llreverseList(head);
+    llprintR(head);
+    node *rev = NULL;
+    llreverseListR(head, rev);
+    llprintR(rev);
 }
