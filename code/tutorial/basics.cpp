@@ -1,11 +1,54 @@
 #include <bits/stdc++.h>
+
+#define fastio                        \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL)
+
+#define endl "\n"
+
 using namespace std;
+
+bool isprime(int n)
+{
+    if (n < 2)
+    {
+        return false;
+    }
+    bool check = true;
+    for (int i = 2; i <= sqrt(n); i++)
+    {
+        if (n % i == 0)
+        {
+            check = false;
+        }
+    }
+    return check;
+}
 
 int main()
 {
-    int arr[] = {1};
-    int *a = arr;
-    int *&b = arr;
+    fastio;
+    int n;
+    cin >> n;
+    bool check = false;
+    for (int i = 2; i < n; i++)
+    {
+        if (isprime(i))
+        {
+            if (n - i < 2)
+            {
+                continue;
+            }
+            if (isprime(n - i))
+            {
+                check = true;
+                break;
+            }
+        }
+    }
+    cout << (check ? "sum of prime" : "not sum of prime");
+
+    return 0;
 }
 
 // string s = "    hello  hj     ";
