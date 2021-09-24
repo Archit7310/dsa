@@ -17,7 +17,6 @@ void swap(int *a, int *b)
 
 void printArray(int A[], int size)
 {
-    cout << endl;
     for (auto i = 0; i < size; i++)
         cout << A[i] << " ";
     cout << endl;
@@ -41,20 +40,11 @@ int partition(int arr[], int low, int high)
 
 void quicksort(int arr[], int start, int end)
 {
-    for (int i = start; i <= end; i++)
-    {
-        cout << arr[i] << " ";
-    }
     if (start >= end)
     {
-        // blank lines will mean that our recurssion reached our end
-        cout << endl;
         return;
     }
     int part_index = partition(arr, start, end);
-    cout << "pivot"
-         << " " << part_index << endl;
-
     quicksort(arr, start, part_index - 1);
     quicksort(arr, part_index + 1, end);
 }

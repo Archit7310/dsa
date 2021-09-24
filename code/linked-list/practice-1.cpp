@@ -160,10 +160,5 @@ int main()
         cin >> data;
         llpushatEnd(head, data);
     }
-    llpushatN(head, 9, 4);
-    // llreverseList(head);
-    llprintR(head);
-    node *rev = NULL;
-    llreverseListR(head, rev);
-    llprintR(rev);
+    cout << head->next->next->next->data;
 }
