@@ -40,13 +40,12 @@ int partition(int arr[], int low, int high)
 
 void quicksort(int arr[], int start, int end)
 {
-    if (start >= end)
+    if (start < end)
     {
-        return;
+        int part_index = partition(arr, start, end);
+        quicksort(arr, start, part_index - 1);
+        quicksort(arr, part_index + 1, end);
     }
-    int part_index = partition(arr, start, end);
-    quicksort(arr, start, part_index - 1);
-    quicksort(arr, part_index + 1, end);
 }
 
 int main()
