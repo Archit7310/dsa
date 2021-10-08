@@ -9,6 +9,15 @@ public:
     node *left;
     node *right;
 };
+int Height(node *root)
+{
+    // O(n) will be the time complexity
+    if (root == NULL)
+    {
+        return -1;
+    }
+    return max(Height(root->left), Height(root->right)) + 1;
+}
 void Preorder(node *root)
 {
     if (root == NULL)
@@ -39,6 +48,19 @@ void Postorder(node *root)
     Postorder(root->right);
     cout << root->data << " ";
 }
+int findMin(node *root)
+{
+    if (root == NULL)
+    {
+        cout << "empty";
+        return -1;
+    }
+    if (root->left == NULL)
+    {
+        return root->data;
+    }
+    return findMin(root->left);
+}
 void Insert(node *&root, int data)
 {
     if (root == NULL)
@@ -65,63 +87,12 @@ bool Search(node *root, int data)
         return Search(root->left, data);
     return Search(root->right, data);
 }
-node *findMin(node *root)
+void Delete(node *&root, node *&par, int data)
 {
-    if (root == NULL)
-    {
-        cout << "empty";
-        return root;
-    }
-    if (root->left == NULL)
-    {
-        return root;
-    }
-    return findMin(root->left);
 }
-node *Delete(node *root, int data)
-{
-    if (root == NULL)
-        return root;
-    else if (data < root->data)
-        root->left = Delete(root->left, data);
-    else if (data > root->data)
-        root->right = Delete(root->right, data);
-    else
-    {
-        // case 1
-        if (root->left == NULL && root->right == NULL)
-        {
-            delete root;
-            root = NULL;
-        }
-        // case 2
-        else if (root->left == NULL)
-        {
-            node *n = root;
-            root = root->right;
-            delete n;
-        }
-        else if (root->right == NULL)
-        {
-            node *n = root;
-            root = root->left;
-            delete n;
-        }
-        // case 3
-        else
-        {
-            node *n = findMin(root);
-            root->data = n->data;
-            root->right = Delete(root->right, root->data);
-        }
-    }
-    return root;
-}
-
 int main()
 {
     node *root = NULL;
-    node *parent = NULL;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
@@ -130,9 +101,29 @@ int main()
         cin >> a;
         Insert(root, a);
     }
+
+    // Insert(root, 10);
+    // Insert(root, 5);
+    // Insert(root, 4);
+    // Insert(root, 6);
+    // Insert(root, 20);
+    // Insert(root, 15);
+    // Insert(root, 25);
+    // cout << Height(root);
+    //           10
+    //       5__| |___20
+    //   4__||__6 15__||__25
     Preorder(root);
     cout << endl;
-    // root = Delete(root, 85);
     Inorder(root);
+    cout << endl;
+    Postorder(root);
+
+    // cout << root->data << endl;
+    // cout << root->right->data << endl;
+    // cout << root->right->left->data;
+    // cout << root->left->data;
+    // cout << (Search(root, 9) ? "Found" : "Not found") << endl;
+    // cout << findMin(root) << endl;
     return 0;
 }
