@@ -117,6 +117,44 @@ node *Delete(node *root, int data)
     }
     return root;
 }
+node *find(node *root, int data)
+{
+    if (root == NULL)
+        return NULL;
+    if (root->data == data)
+        return root;
+    if (data < root->data)
+        return find(root->left, data);
+    return find(root->right, data);
+}
+node *inorderSuccessor(node *root, int data)
+{
+    node *n = find(root, data);
+    if (n == NULL)
+        return NULL;
+    // if it has right child
+    if (n->right != NULL)
+    {
+        return findMin(n->right);
+    }
+    //if it has no right child
+    else
+    {
+        node *succesor = NULL;
+        node *ansestor = root;
+        while (ansestor != n)
+        {
+            if (n->data < ansestor->data)
+            {
+                succesor = ansestor;
+                ansestor = ansestor->left;
+            }
+            else
+                ansestor = ansestor->right;
+        }
+        return succesor;
+    }
+}
 
 int main()
 {
