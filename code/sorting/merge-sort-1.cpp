@@ -66,6 +66,7 @@ void mergeSort(int *array, int l, int r)
         int m = l + (r - l) / 2;
         mergeSort(array, l, m);
         mergeSort(array, m + 1, r);
+        cout << "merge called" << l << m << r << endl;
         merge(array, l, m, r);
     }
 }
@@ -73,8 +74,7 @@ void mergeSort(int *array, int l, int r)
 int main()
 {
     fastio;
-    int arr[] = {5, 4, 2, 3, 6, 0, 3};
-    mergeSort(arr, 0, 7);
-    printdata(arr, 7);
+    int arr[] = {10, 20, 30, 40, 50};
+    mergeSort(arr, 0, 5);
     return 0;
 }

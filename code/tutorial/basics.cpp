@@ -11,12 +11,20 @@ using namespace std;
 int main()
 {
     fastio;
-    char c[5] = {'c', 'h', 'a', 'r', '\0'};
-    cout << (c + 1) << endl;
-    cout << *(c + 2) << endl;
-    char *p = c;
-    void *a = (void *)p;
-    cout << &c[1];
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (j < n - i - 1)
+                cout << " ";
+            else
+                cout << "* ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
 

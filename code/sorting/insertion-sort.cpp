@@ -42,6 +42,12 @@ public:
     {
         for (int i = 1; i < n; i++)
         {
+            for (int i = 0; i < n; i++)
+            {
+                cout << ar[i] << " ";
+            }
+            cout << endl;
+
             int t = i - 1, val = ar[i];
             while (t >= 0 && val < ar[t])
             {

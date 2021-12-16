@@ -87,6 +87,26 @@ public:
     }
 };
 
+void maxheaptominheap(int arr[], int size)
+{
+    int *h = new int[size];
+    h = arr;
+    int i = -1;
+    while (i != size - 1)
+    {
+        i++;
+        h[i] = arr[i];
+        int j = i;
+        while (j != 0 && h[(j - 1) / 2] > arr[i])
+        {
+            h[j] = h[(j - 1) / 2];
+            j = (j - 1) / 2;
+        }
+        h[j] = arr[i];
+    }
+    arr = h;
+}
+
 int main()
 {
     fastio;
@@ -102,11 +122,17 @@ int main()
     }
     h.print();
     cout << endl;
+    int arr[9] = {13, 9, 11, 8, 4, 1, 10, 3, 5};
+    maxheaptominheap(arr, 9);
+    for (int i = 0; i < 9; i++)
+    {
+        cout << arr[i] << " ";
+    }
 
     // cout << h.i;
     // h.pop();
     // h.pop();
-    h.print();
+    // h.print();
 
     return 0;
 }
