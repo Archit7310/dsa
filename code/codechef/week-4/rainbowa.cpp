@@ -24,6 +24,6 @@ int main()
             cin >> arr[i];
         }
         int &a = arr[0], &b = arr[n - 1];
-    }
+        }
     return 0;
 }

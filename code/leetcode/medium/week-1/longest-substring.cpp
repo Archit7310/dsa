@@ -13,9 +13,13 @@ int main()
 {
     fastio;
     string s;
-    cin >> s;
+    getline(cin, s);
     int count = 0, n = s.length();
-    int *arr = new int(n);
+    int *arr = new int(128);
+    for (int i = 0; i < n; i++)
+    {
+        
+    }
 
     return 0;
 }
