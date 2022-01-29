@@ -16,9 +16,12 @@ int main()
     cout << "length: " << str.length() << "\n";
     cout << "capacity: " << str.capacity() << "\n";
     cout << "max_size: " << str.max_size() << "\n";
-    replace(str.begin(), str.end(), 'e', 'o');
+    replace(str.begin(), str.end(), 'r', ' ');
     str.append("abc");  // append a string
     str.push_back('a'); // push a char
+    // str = "()()()";
+    // regex reg("\\()");
+    // str = regex_replace(str, reg, "o");
     cout << str;
     return 0;
 }
