@@ -1,4 +1,9 @@
 .cph
+**/.cph
+**/**/.cph
+*.bin
+**/.bin
+**/**/.bin
 .vscode
 *.bin
 automate.py
