@@ -4,6 +4,9 @@
 *.bin
 **/*.bin
 **/**/*.bin
+*.exe
+**/*.exe
+**/**/*.exe
 .vscode
 *.bin
 automate.py
