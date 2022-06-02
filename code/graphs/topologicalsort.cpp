@@ -9,7 +9,6 @@
 using namespace std;
 
 // c++ graph
-
 struct Vertex
 {
     int info;
