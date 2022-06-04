@@ -11,59 +11,32 @@ using namespace std;
 //     1 2 4 6 8     7
 //     1 2 4 6 7 8
 
-class arr
-{
-    int *ar;
-    int n;
-
-public:
-    arr(int size)
-    {
-        n = size;
-        ar = new int[n];
-    }
-    void insertdata()
-    {
-        for (int i = 0; i < n; i++)
-        {
-            int temp;
-            cin >> temp;
-            ar[i] = temp;
-        }
-    }
-    void printdata()
-    {
-        for (int i = 0; i < n; i++)
-        {
-            cout << ar[i] << " ";
-        }
-    }
-    void insertionSort()
-    {
-        for (int i = 1; i < n; i++)
-        {
-            int t = i - 1, val = ar[i];
-            while (t >= 0 && val < ar[t])
-            {
-                ar[t + 1] = ar[t];
-                t--;
-            }
-            ar[t + 1] = val;
-        }
-    }
-    ~arr()
-    {
-        delete[] ar;
-    }
-};
-
 int main()
 {
     int n;
     cin >> n;
-    arr a(n);
-    a.insertdata();
-    a.insertionSort();
-    a.printdata();
+    int *arr = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i];
+    }
     return 0;
 }

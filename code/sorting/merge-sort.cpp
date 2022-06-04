@@ -1,79 +1,46 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
+#define fastio                        \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL)
+
+#define endl "\n"
 using namespace std;
 
-void merge(int array[], int const left, int const mid, int const right)
+void merge(int *arr, int l, int m, int r)
 {
-    auto const subArrayOne = mid - left + 1;
-    auto const subArrayTwo = right - mid;
-
-    auto *leftArray = new int[subArrayOne],
-         *rightArray = new int[subArrayTwo];
-
-    for (auto i = 0; i < subArrayOne; i++)
-        leftArray[i] = array[left + i];
-    for (auto j = 0; j < subArrayTwo; j++)
-        rightArray[j] = array[mid + 1 + j];
-
-    auto indexOfSubArrayOne = 0,   // Initial index of first sub-array
-        indexOfSubArrayTwo = 0;    // Initial index of second sub-array
-    int indexOfMergedArray = left; // Initial index of merged array
-
-    while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo)
+    int lf = l, rf = m + 1, ar[r - l + 1], i = 0, j = 0;
+    while (lf <= m && rf <= r)
     {
-        if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])
+        if (arr[lf] < arr[rf])
         {
-            array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
-            indexOfSubArrayOne++;
+            ar[i] = arr[lf];
+            lf++;
         }
         else
         {
-            array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
-            indexOfSubArrayTwo++;
+            ar[i] = arr[rf];
+            rf++;
         }
-        indexOfMergedArray++;
-    }
-
-    while (indexOfSubArrayOne < subArrayOne)
-    {
-        array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
-        indexOfSubArrayOne++;
-        indexOfMergedArray++;
-    }
-
-    while (indexOfSubArrayTwo < subArrayTwo)
-    {
-        array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
-        indexOfSubArrayTwo++;
-        indexOfMergedArray++;
+        i++;
     }
 }
 
-void mergeSort(int array[], int const begin, int const end)
+void mergeSort(int *arr, int l, int r)
 {
-    cout << endl;
-    for (int i = begin; i < end + 1; i++)
+    if (r > l)
     {
-        cout << array[i] << " ";
+        return;
     }
-    cout << endl;
-    if (begin >= end)
-        return; // Returns recursivly
-
-    auto mid = begin + (end - begin) / 2;
-    mergeSort(array, begin, mid);
-    mergeSort(array, mid + 1, end);
-    merge(array, begin, mid, end);
-}
-
-void printArray(int A[], int size)
-{
-    for (auto i = 0; i < size; i++)
-        cout << A[i] << " ";
-    cout << endl;
+    int m = l + (r - l) / 2;
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+    merge(arr, l, m, r);
 }
 
 int main()
 {
+    fastio;
     int n;
     cin >> n;
     int *arr = new int[n];
@@ -81,12 +48,10 @@ int main()
     {
         cin >> arr[i];
     }
-    cout << "Given array is \n";
-    printArray(arr, n);
-
     mergeSort(arr, 0, n - 1);
-
-    cout << "\nSorted array is \n";
-    printArray(arr, n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
     return 0;
 }

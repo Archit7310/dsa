@@ -43,8 +43,8 @@ void quicksort(int arr[], int start, int end)
     if (start < end)
     {
         int part_index = partition(arr, start, end);
-        quicksort(arr, start, part_index - 1);
-        quicksort(arr, part_index + 1, end);
+        quicksort(arr, start, part_index - 2);
+        quicksort(arr, part_index + 2, end);
     }
 }
 
