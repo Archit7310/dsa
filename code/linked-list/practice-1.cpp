@@ -110,16 +110,26 @@ void lldeleteN(node *&head, int index)
 
 void llreverseList(node *&head)
 {
-    node *current, *prev = NULL, *next;
-    current = head;
-    while (current != NULL)
+    node *curr = head, *rev = NULL;
+    while (curr != NULL)
     {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
+        node *n = curr;
+        curr = curr->next;
+        n->next = rev;
+        rev = n;
     }
-    head = prev;
+    head = rev;
+
+    // node *current, *prev = NULL, *next;
+    // current = head;
+    // while (current != NULL)
+    // {
+    //     next = current->next;
+    //     current->next = prev;
+    //     prev = current;
+    //     current = next;
+    // }
+    // head = prev;
 }
 
 // reverse a linked list using recursion
@@ -129,8 +139,7 @@ void llreverseListR(node *&n, node *&rev)
     {
         return;
     }
-    node *next = NULL;
-    next = n->next;
+    node *next = n->next;
     n->next = rev;
     rev = n;
     n = next;
@@ -160,5 +169,7 @@ int main()
         cin >> data;
         llpushatEnd(head, data);
     }
-    cout << head->next->next->next->data;
+    llreverseList(head);
+    llprint(head);
+    // cout << head->next->next->next->data;
 }

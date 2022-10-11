@@ -1,10 +1,17 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
+#include <stack>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <set>
+#include <map>
 using namespace std;
 
-class node
+struct node
 {
-public:
     int data;
     node *next;
 };
@@ -181,8 +188,6 @@ void deletefromend(node *&head)
 int main()
 {
     node *head = NULL;
-    pushAtEnd(head, 10);
-    pushAtEnd(head, 30);
     pushAtStart(head, 4);
     pushAtStart(head, 2);
     pushAtEnd(head, 40);
